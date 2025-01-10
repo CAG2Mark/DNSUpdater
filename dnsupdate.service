@@ -1,0 +1,15 @@
+[Unit]
+Description=CloudFlare DNS Updater
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=1
+WorkingDirectory=/path/to/DNSUpdater
+ExecStart=python3 /path/to/DNSUpdater/main.py
+
+[Install]
+WantedBy=default.target
